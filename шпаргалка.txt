@@ -1,0 +1,49 @@
+Поиск html-элементами в javascript:
+
+let title_element = document.querySelector(".title"); находит один элемент с уникальным классом
+let blocks = document.querySelectorAll(".block"); находит много элементов с общим классом, помещает все элементы в массив
+
+Действия, связанные с html-элементами в js:
+title_element.innerHTML = "lol" //меняет текст внутри элемента
+title_element.style.fontSize = "40px" свойства изменяет
+img.src = "1.jpg" вставляет новый адрес картинки
+
+Цикл по нажатию делает элемент красным. Не сразу, а по нажатию. 
+for(let i=0; i<10;i=i+1){
+    blocks[i].onclick = function(){
+        blocks[i].style.background = "red"
+    }
+}
+
+Типы данных - это информация, которая хранится в переменных (коробках)
+let t = "Привет"; текст
+let num = 10; число
+let movies = ["Дюна", "Человек-паук", "Король Ричард"]; массив
+let me = {
+    age: 15,
+    name:"Аня",
+    school: 2,
+    friends:["Миша","Катя","Саша"]
+} объект
+
+Функция - это завод, выпускающий продукцию. Если писать return, то вызов функции заменяется на то, что стоит в return.
+function getSquare(arg){
+    return arg * arg;
+}
+
+let answer = getSquare(5); //вызов функции превратится в число 25 и это число сохраняем в переменную, чтобы дальше использовать
+
+
+Создание элементов:
+let elem = document.createElement('div'); создание хтмл-элемента 
+document.body.appendChild(elem); добавление хтмл-элемента в тег body
+
+Рандом: 
+let rand = Math.random() * 10; создание нецелого числа в пределах 10 и сохранение в переменную
+let round = Math.round(rand); округление нецелого числа и сохранение в переменную
+
+
+Время:
+setInterval(timer, 1000); каждую секунду будет вызываться функция timer
+setTimeout(finish, 10000); спустя 10 секунд вызовится функция finish
+

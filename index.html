@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.btn{
+			height: 150px;
+			width: 150px;
+			display: block;
+			margin: 0 auto;
+		}
+		.style1{
+			height: 100px;
+			width: 100px;
+			background-image: url(kot.gif);
+			position: absolute;
+			background-size: 100% 100%
+
+		}
+		.kot{
+			background: blue;
+			position: absolute;
+			height: 100px;
+			width: 100px;
+		}
+		.background{
+			background-image: url(cave2.png);
+			background-size: 100% 
+			
+		}
+
+	</style>
+</head>
+<body class="background">
+	<h1 style="color: yellow">score: <span class="point"style="color: yellow">0</span></h1>
+	<h2 class = 'h2'style="color: yellow">time: <span class="time"style="color: yellow">0</span></h2>
+	<button class="btn" style="text-align: center;font-size: 20px; background: red" >Start</button>	
+	<div class="background"></div>
+	<script type="text/javascript">
+		let btn = document.querySelector(".btn");
+		let m = [200, 400, 600]
+		let point = document.querySelector(".point")
+		let time = document.querySelector(".time")
+		let times = 0
+		let score = 0
+		let h2 = document.querySelector(".h2")
+		let div = function() {
+			let div	= document.createElement('div')
+			document.body.appendChild(div)
+			div.classList.add('style1')
+			div.style.left = r(2000) + "px"
+			div.style.top = m[r(2)] + "px"
+			if(r(2) == 0){
+				div.style.backgroundImage = "url(almaz.webp)"
+				div.name = "g"
+			}else if(r(2)== 1){
+				div.style.backgroundImage = "url(zoloto.png)"
+				div.name = "n"
+			}else{
+				div.style.backgroundImage = "url(tnt.webp)"
+				div.name = "b"	
+			}
+			div.onclick = function() {
+			div.style.display = 'none'
+				if(div.name == "g"){
+				score = score + 2
+				point.innerHTML = score
+				}else if(div.name == "n"){
+				score = score + 1
+				point.innerHTML = score
+				}else if(div.name == "b"){
+				score = score - 3
+				point.innerHTML = score
+				}
+			}
+		}
+		let timer = function(){
+			if(score >= 30){
+				alert("you win")
+				h2.style.display = 'none'
+			}else if (score < 30){
+				alert("you loose")
+				h2.style.display = 'none'
+			}
+		}
+			let tick = function(){
+				times = times + 1
+				time.innerHTML = times
+			}	
+		btn.onclick = function() {
+			setInterval(div, 300)
+			btn.style.display = 'none'
+			setInterval(tick, 1000)
+			setTimeout(timer, 15000)
+		}
+		let r = function (arg){ 
+			let a = Math.random() * arg
+			let o = Math.round(a)
+			return o
+		}
+		
+		
+	</script>
+</body>
+</html>
